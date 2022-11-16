@@ -1,122 +1,277 @@
-.header{
-  
-  height: 7vh;
-  width: 100vw;
-  background: #feb101;
+header{
+  width: 100%;
+  height: 80px;
+  background: #f5f5f5;
+  opacity: 0.7;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 170px;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+}
+body{
+  background: #4d4d4d;
+  margin-left: 80px;
+  margin-top: 80px;
+  transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+main{
+  height: 800px;
+  padding: 20px;
   
 }
-.logo__turismo{
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  
-}
-.menu{
-  max-width: 1200px;
-  margin: auto;
+
+.icon__menu{
+  width: 50px;
   height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(10px);
 }
-nav{
-  height: 100%;
-  
+
+.icon__menu i{
+  font-size: 25px;
+  color: #000000;
+  cursor: pointer;
+  position: absolute;
 }
-nav > ul{
+
+.menu__side{
+  width: 80px;
   height: 100%;
+  background: #feb101;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #4d4d4d;
+  font-size: 18px;
+  z-index: 300;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-right: 20px solid #feb101;
+  transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Ocultar scroll para chrome, safari y opera*/
+.menu__side::-webkit-scrollbar{
+  display: none;
+}
+
+/*Ocultar scroll para IE, Edge y Firefox*/
+.menu__side{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.name__page{
+  padding: 20px 30px;
   display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
-nav > ul > li{
-  height: 100%;
+
+.name__page i{
+  color: #4d4d4d;
+  width: 20px;
+  margin-right: 20px;
+}
+
+.options__menu{
+  padding: 20px 30px;
+  position: absolute;
+  top: 80px;
+}
+
+.options__menu a{
+  color: #4d4d4d;
+  cursor: default;
+  display: block;
+  position: relative;
+  transition: color 300ms;
+}
+
+.options__menu a:hover{
+  color: #ffffff;
+}
+
+.options__menu .option{
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
-.links__header{
-  width: 100%;
-  height: 100%;
+.options__menu .option i{
+  width: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.options__menu .option h4{
+  font-weight: 300;
+  cursor: pointer;
+}
+
+a.selected{
+  color: #4d4d4d;
+}
+
+.selected:before{
+  content: '';
+  width: 3px;
+  height: 80%;
+  background: white;
+  position: absolute;
+  top: 10%;
+  left: -30px;
+}
+
+/*Clases para usar en JavaScript*/
+
+.body_move{
+  margin-left: 250px;
+}
+
+.menu__side_move{
+  width: 250px;
+}
+
+
+@media screen and (max-width: 760px){
+  .body_move{
+      margin-left: 0px;
+  }
+
+  .menu__side_move{
+      width: 80px;
+      left: -80px;
+  }
+}
+
+/*productos*/
+.productos{
+  padding: 100px 200px;
+  background: #4d4d4d;
+  opacity: 0.9;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.servicios{
+ 
+  opacity: 0.8;
+}
+h2{
+  color: #f5f5f5;
+  font-size: 3rem;
+  text-align: center;
+}
+p{
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 50px;
+}
+
+
+.imagenes{
   display: flex;
   align-items: center;
-  color: #ffffff;
-  font-size: 30px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-  height: inherit;
-  text-align: center;
-  padding: 0px 30px;
-  transition: all 300ms ease;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 10px;
 }
-.links__header:hover{
-  transform:scale(1.1);
-  border-radius: 19px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  background: #9ded0e;
-  -webkit-transform:scale(1.1);
-  -moz-transform:scale(1.1);
-  -ms-transform:scale(1.1);
-  -o-transform:scale(1.1);
-}
-nav  ul  li  ul{
-  width: 200px;
-  background: #9ded0e;
-  display: flex;  
-  flex-direction: column;
-  position: absolute;
+.img__productos{
+  width: 500px;
+  height: 300px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  left: -5px;
-  top: 130px;  
-  padding: 6px;
-  opacity: 1;
-  visibility: hidden;
-  z-index: 10;
-  transition: all 300ms ease;
-  
-}
-nav  ul  li:hover  ul{
-  visibility: visible;
-  opacity: 0.8;
-  top: 95px;
-}
-nav  ul  li  ul::before{
-  content: " ";
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 12px solid #9ded0e;
-  position: absolute;
-  top: -12px;
-  left: 20px;
-} 
-nav  ul  li  ul a {
-  display: block;
-  color: #ffffff;
-  padding: 9px;
-  padding-left: 14px;
-  margin-top: 10px;
-  font-size: 17px;
-  font-weight: bold;
-  transition: all 300ms ease;
-  
-}
-nav  ul  li  ul a:hover{
-  background: #ffffff;  
-  color: #4d4d4d;
-  font-weight: bold;
-  transform: scale(1.1);
-  font-size: 19px;
-  padding-left: 30px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 
-.hero{
-  width: 100vw;
-  height: 93vh;
- 
-  background-image: url(../img/logo.jpg);
+footer{
+  width: 100%;
+  padding: 50px 0px;
+  background-image: url(../img/background-footer.svg);
   background-size: cover;
+  
+  
+}
+
+.container__footer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.box__footer{
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+.logo{
+  margin: 0;
+}
+
+.box__footer .logo img{
+  width: 180px;
+}
+
+.box__footer .terms{
+  max-width: 350px;
+  margin-top: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.box__footer h2{
+  margin-bottom: 30px;
+  color: #4d4d4d;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.box__footer a{
+  margin-top: 10px;
+  color: #4d4d4d;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.box__footer a:hover{
+  opacity: 0.8;
+}
+
+.box__footer a .fab{
+  font-size: 20px;
+}
+
+.box__copyright{
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding: 0px 40px;
+}
+
+.box__copyright p{
+  margin-top: 20px;
+  color: #4d4d4d;
+  font-size: 1rem;
+}
+
+.box__copyright hr{
+  border: none;
+  height: 1px;
+  background-color: #4d4d4d;
 }
